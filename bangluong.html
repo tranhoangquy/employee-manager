@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Bảng Lương | Quản Lý Nhân Sự</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="manager.css">
+    <link rel="stylesheet" href="bangluong.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+<body  id="body"  onload="" >
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#"><i class="fas fa-user-tie" aria-hidden="true"></i> QUẢN LÝ NHÂN SỰ</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="manager.html" data-toggle="tooltip" data-placement="bottom"
+                        title="NHÂN VIÊN">NHÂN VIÊN</a></li>
+                        <li><a href="#"  data-toggle="tooltip" data-placement="bottom"
+                        title="BẢNG LƯƠNG">BẢNG LƯƠNG</a></li>
+                    <li><a href="#" data-toggle="tooltip" data-placement="bottom"
+                        title="ĐIỂM DANH">ĐIỂM DANH</a></li>
+                    <li><a href="#"  data-toggle="tooltip" data-placement="bottom"
+                        title="PHÒNG BAN">PHÒNG BAN</a></li>
+                    <li><a href="#contact"  data-toggle="tooltip" data-placement="bottom"
+                        title="BÁO CÁO">BÁO CÁO</a></li>
+                    <li><a href="#tour"  data-toggle="tooltip" data-placement="bottom"
+                        title="SỰ KIỆN">SỰ KIỆN</a></li>
+                    <li style="display: flex">
+                        <a href="#"  data-toggle="tooltip" data-placement="bottom"
+                        title="TÀI KHOẢN"><b style="font-size: 11px">TÀI KHOẢN</b>
+                            <span style="width: 7px; height: 7px;" class="caret"></span>
+                        </a>
+                        <ul style="margin-right: 20px;line-height: 50px" class="dropdown">
+                            <li><a style="font-size: 11px; line-height: 34px" href="index.html"  data-toggle="tooltip" data-placement="bottom"
+                                title="ĐĂNG XUẤT"><b>ĐĂNG XUẤT <i class="fas fa-sign-out-alt"></i></b></a></li>
+                        </ul>
+                    </li>   
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid al">
+        <div style="margin-top: 20px" id="clock"></div>
+        <Br>
+        <p class="timkiemnhanvien"><b>TÌM KIẾM NHÂN VIÊN:</b></p><Br><Br>
+        <input type="text" id="myInput" onkeyup="searchNV(this.value)"  placeholder="Tìm kiếm..."
+            data-toggle="tooltip" data-placement="bottom" title="Tìm Kiếm Nhân Viên">
+        <select id="select-box">
+            <option value="Tìm kiếm theo...">Search / Sort</option>
+            <option value="Chức vụ">Chức vụ</option>
+            <option value="Tên">Tên</option>
+            <option value="Phòng ban">Phòng ban</option>
+            <option value="ID">ID</option>
+            <option value="Họ và tên">Họ và tên</option>
+        </select>
+        <button class="fa fa-search" aria-hidden="true">
+            <span>SEARCH</span>
+        </button>       
+        <div id="form-new">
+            <form id="formReset">
+            <table id="addtbl">
+                <tr>
+                    <td>
+                        <select class="formcontrol" id="month">
+                            <option value="">Chọn tháng</option>
+                            <option value="Thang 1">Thang 1</option>
+                            <option value="Thang 2">Thang 2</option>
+                            <option value="Thang 3">Thang 3</option>
+                            <option value="Thang 4">Thang 4</option>
+                            <option value="Thang 5">Thang 5</option>
+                            <option value="Thang 6">Thang 6</option>
+                            <option value="Thang 7">Thang 7</option>
+                            <option value="Thang 8">Thang 8</option>
+                            <option value="Thang 9">Thang 9</option>
+                            <option value="Thang 10">Thang 10</option>
+                            <option value="Thang 11">Thang 11</option>
+                            <option value="Thang 12">Thang 12</option>
+
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="formcontrol" name="name" id="name" placeholder="Nhập tên...">
+                    </td>
+                    <td>
+                        <input min="1" type="number" class="formcontrol" name="namsinh" id="cmnd" placeholder="Nhập ID...">
+                    </td>
+                    <td>
+                        <input min="1" type="number" class="formcontrol" name="diachi"  onkeyup="tinh()" id="time" placeholder="Nhập giờ công...">
+                    </td>
+                    <td>
+                        <input min="1" type="number" class="formcontrol" name="chucvu"  onkeyup="tinh()" id="money" placeholder="Nhập lương theo giờ...">
+                    </td>
+                    <td>
+                        <input min="1" type="number" class="formcontrol" name="phongban"  onkeyup="tinh()" id="bonus" placeholder="Nhập tiển thưởng...">
+                    </td>
+                    <td>
+                        <input min="1" type="number" class="formcontrol" name="cmnd"  onkeyup="tinh()" id="punish" placeholder="Nhập tiền phạt ...">
+                    </td>
+                    <td>
+                        <input disabled type="number" class="formcontrol" name="cmnd" id="totalMoney" placeholder="Tiền lương là ...">
+                    </td>
+                        
+                    </td></tr>
+            </table>  
+        </form>
+            <button type="button" class="btn-add" id="save" onclick="save()">
+                    <span>ADD</span>
+            </button>
+            <button type="button" class="btn-add" id="update" onclick="update()">
+                    <span>Update</span>
+            </button>           
+        </div><Br>
+        <button style="outline: none;" class="nv btn add-new" id="add-new" type="button" data-toggle="tooltip" 
+        data-placement="top"
+            title="Thêm Nhân Viên" onclick="add()"><i class="fas fa-user-plus"></i></button>
+        <button class="nv" type="button" onclick="calMoney()" data-toggle="tooltip" data-placement="top"
+            title="Tính tổng lương"><i class="fas fa-calculator" aria-hidden="true"></i></button>
+         <div id="font-cal">
+            <table id="calculator">
+                <tr>
+                    <td>
+                        <input onkeyup="searchNV(this.value)" type="text" class="form-cal"  name="month" id="write_sth" placeholder="Nhập vào Tháng hoặc Tên Nhân viên">
+                    </td>
+                    
+                </tr> 
+
+            </table>
+        </div>
+        <div class="table-title">
+            <div class="row">
+            </div>
+            <table class="table table-bordered" id="myTable">
+            <thead>
+                <tr class="ex">
+                    <th>Tháng</th>
+                    <th >Tên Nhân Viên</th>
+                    <th >ID Number</th>
+                    <th>Số giờ làm việc</th>
+                    <th>Lương theo giờ</th>
+                    <th>Thưởng</th>
+                    <th>Phạt</th>
+                    <th>Lương <i onclick="sortMoney()" class="fa fa-sort"></i> </th>
+                 </tr>
+            </thead>
+            <tbody id="content">
+                <tr>
+        </table>
+        <div id="salary">
+            <input disabled class="form-cal" name="cmnd" id="total_Money" placeholder="Total Salary"> 
+            <span id="sum_money">Tổng tiền lương là : </span>
+        </div>              
+        </div>
+        <div id="pageNavPosition" class="text-right"></div>
+            </div>
+    <hr class="hr1">
+    <div class="container-fluid end">
+        <div class="row text-center">
+            <div class="col-lg-12 link">
+                <i class="fab fa-facebook-square" style="font-size: 25px"></i>
+                <i class="fab fa-instagram" style="font-size: 25px"></i>
+                <i class="fab fa-youtube" style="font-size: 25px"></i>
+                <i class="fas fa-envelope" style="font-size: 25px"></i>
+            </div>
+            <div class="col-lg-12">
+                2020 &#169; Phầm mềm quản lý nhân sự | Design by <a style="text-decoration: none;" href="https://www.facebook.com/theanh.galaxy" target="_blank">Thế Anh &#174;</a>
+            </div>
+        </div>
+    </div>
+<script src="bangluong.js"></script>
+</body>
+</html>

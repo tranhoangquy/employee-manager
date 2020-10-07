@@ -1,0 +1,32 @@
+.formcontrol {
+    outline: none;
+    border-radius: 0px;
+    width: 151px;
+    padding: 9px;
+    margin-right: -1px;
+    border: 1px solid #ddd;
+}
+.form-cal {
+	outline: none;
+    border-radius: 0px;
+    width: 300px;
+    padding: 9px;
+    margin-right: -1px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+#font-cal, #salary {
+	display: none;
+}
+#month {
+    padding: 10px;
+}
+#sum_money {
+    float: right;
+    margin-right: 14px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-size: 15px;
+    font-weight: bold;
+}

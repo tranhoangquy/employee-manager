@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Nhân Viên | Quản Lý Nhân Sự</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../aaa.css">
+    <link rel="stylesheet" href="manager.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body  id="body"  onload="" >
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#"><i class="fas fa-user-tie" aria-hidden="true"></i> QUẢN LÝ NHÂN SỰ</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="manager.html" data-toggle="tooltip" data-placement="bottom"
+                        title="NHÂN VIÊN">NHÂN VIÊN</a></li>
+                        <li><a href="bangluong.html"  data-toggle="tooltip" data-placement="bottom"
+                        title="BẢNG LƯƠNG">BẢNG LƯƠNG</a></li>
+                    <li><a href="#" data-toggle="tooltip" data-placement="bottom"
+                        title="ĐIỂM DANH">ĐIỂM DANH</a></li>
+                    <li><a href="#"  data-toggle="tooltip" data-placement="bottom"
+                        title="PHÒNG BAN">PHÒNG BAN</a></li>
+                    <li><a href="#contact"  data-toggle="tooltip" data-placement="bottom"
+                        title="BÁO CÁO">BÁO CÁO</a></li>
+                    <li><a href="#tour"  data-toggle="tooltip" data-placement="bottom"
+                        title="SỰ KIỆN">SỰ KIỆN</a></li>
+                    <li style="display: flex">
+                        <a href="#"  data-toggle="tooltip" data-placement="bottom"
+                        title="TÀI KHOẢN"><b style="font-size: 11px">TÀI KHOẢN</b>
+                            <span style="width: 7px; height: 7px;" class="caret"></span>
+                        </a>
+                        <ul style="margin-right: 20px;line-height: 50px" class="dropdown">
+                            <li><a style="font-size: 11px; line-height: 34px" href="index.html"  data-toggle="tooltip" data-placement="bottom"
+                                title="ĐĂNG XUẤT"><b>ĐĂNG XUẤT <i class="fas fa-sign-out-alt"></i></b></a></li>
+                        </ul>
+                    </li>   
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid al">
+        <div style="margin-top: 20px" id="clock"></div>
+        <Br>
+        <p class="timkiemnhanvien"><b>TÌM KIẾM NHÂN VIÊN:</b></p><Br><Br>
+        <input type="text" id="myInput" onkeyup="searchNV(this.value)" placeholder="Tìm kiếm..."
+            data-toggle="tooltip" data-placement="bottom" title="Tìm Kiếm Nhân Viên">
+        <select id="select-box">
+            <option value="Tìm kiếm theo..."> Search / Sort</option>
+            <option value="Chức vụ">Chức vụ</option>
+            <option value="Tên">Tên</option>
+            <option value="Phòng ban">Phòng ban</option>
+            <option value="ID">ID</option>
+            <option value="Họ và tên">Họ và tên</option>
+            <option onclick="nameSort" value="">Sắp xếp theo họ tên</option>
+            <option value="">Sắp xếp theo phòng ban</option>
+        </select>
+        <button onclick="listSearch()" class="fa fa-search" aria-hidden="true">
+            <span>SEARCH</span>
+        </button>
+        <div id="form-new">
+            <form id="formReset">
+            <table id="addtbl">
+                <tr>
+                    <td>
+                        <input type="text" class="formcontrol" name="name" id="name" placeholder="Nhập tên..." >
+                    </td>
+                    <td>
+                        <select class="formcontrol" name="gioitinh" id="gioitinh">
+                            <!-- <option value="">Chọn giới tính</option> -->
+                            <option value="Nam">Nam</option>
+                            <option value="Nu">Nu</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="DATE" class="formcontrol" name="namsinh" id="namsinh" value="" placeholder="Nhập ngày sinh..." >
+                    </td>
+                    <td>
+                        <input type="text" class="formcontrol" name="diachi" id="diachi" value="" placeholder="Nhập địa chỉ...">
+                    </td>
+                    <td>
+                        <select class="formcontrol" name="chucvu" id="chucvu" >
+                            <!-- <option value="">Chọn chức vụ</option> -->
+                            <option value="Truong phong">Truong phong</option>
+                            <option value="Ke toan">Ke toan</option>
+                            <option value="Nhan vien kinh doanh">Nhan vien kinh doanh</option>
+                            <option value="Nhan vien ki thuat">Nhan vien ki thuat</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="formcontrol" name="phongban" id="phongban">
+                            <!-- <option value="">Chọn Phòng ban</option> -->
+                            <option value="Kinh doanh">Kinh doanh</option>
+                            <option value="Ke toan">Ke toan</option>
+                            <option value="Ki thuat">Ki thuat</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input min="1" type="number" class="formcontrol" name="cmnd" id="cmnd" placeholder="Nhập ID Numbers...">
+                    </td>
+                    <td>                      
+                    </td></tr>
+            </table>
+        </form>
+              <button type="button" class="btn-add" id="save" onclick="save()">
+                    <span>ADD</span>
+                </button>
+              <button class="btn-add" id="update" onclick="update()">
+                    <span>Update</span>
+            </button>           
+        </div> <Br>
+        <button style="outline: none;" class="nv btn add-new" id="add-new" type="button" data-toggle="tooltip" 
+        data-placement="top"
+            title="Thêm Nhân Viên" onclick="add()"><i class="fas fa-user-plus"></i></button>
+            <div class="table-title">
+            <div class="row">
+            </div>
+        </div>
+        <table class="table table-bordered" id="myTable">
+            <thead>
+                <tr class="ex">
+                    <th width="auto" onclick="sortTable()">Tên Nhân Viên <i  class="fa fa-sort"></i></th>
+                    <th width="auto">Giới Tính</th>
+                    <th>Ngày Sinh</th>
+                    <th>Địa Chỉ</th>
+                    <th>Chức Vụ</th>
+                    <th onclick="sortPB()" >Phòng ban <i class="fa fa-sort"></i></th>
+                    <th>ID Numbers</th>
+                    <th width="15px; !important">Action</th>
+                </tr>
+            </thead>
+            <tbody id="content">
+            </tbody>
+        </table>
+                <div id="pageNavPosition" class="text-right"></div>
+            </div>
+    <hr class="hr1">
+    <div class="container-fluid end">
+        <div class="row text-center">
+            <div class="col-lg-12 link">
+                <i class="fab fa-facebook-square" style="font-size: 25px"></i>
+                <i class="fab fa-instagram" style="font-size: 25px"></i>
+                <i class="fab fa-youtube" style="font-size: 25px"></i>
+                <i class="fas fa-envelope" style="font-size: 25px"></i>
+            </div>
+            <div class="col-lg-12">
+                2020 &#169; Phầm mềm quản lý nhân sự | Design by <a style="text-decoration: none;" href="https://www.facebook.com/theanh.galaxy" target="_blank">Thế Anh &#174;</a>
+            </div>
+        </div>
+    </div>
+     <script src="jquery.min.js"></script>
+    <script type="text/javascript">
+    </script>
+    <script src="manager.js"></script>
+</body>
+</html>
